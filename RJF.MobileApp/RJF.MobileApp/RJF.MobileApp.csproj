@@ -38,10 +38,53 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Client\LoginClientPage.xaml.cs">
+      <DependentUpon>LoginClientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Company\LoginCompanyPage.xaml.cs">
+      <DependentUpon>LoginCompanyPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Layouts\ClientMainLayoutPage.cs" />
+    <Compile Include="Pages\Layouts\CompanyMainLayout.cs" />
+    <Compile Include="Pages\Layouts\MainLayoutPage.cs" />
+    <Compile Include="Pages\Leases\AddLease.xaml.cs">
+      <DependentUpon>AddLease.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Leases\CompleteLease.xaml.cs">
+      <DependentUpon>CompleteLease.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Leases\LeaseDetails.xaml.cs">
+      <DependentUpon>LeaseDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Leases\Leases.xaml.cs">
+      <DependentUpon>Leases.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Robots\AddRobot.xaml.cs">
+      <DependentUpon>AddRobot.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Robots\AddRobotModel.xaml.cs">
+      <DependentUpon>AddRobotModel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Robots\RobotDetails.xaml.cs">
+      <DependentUpon>RobotDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Robots\Robots.xaml.cs">
+      <DependentUpon>Robots.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pages\Client\RegisterClientPage.xaml.cs">
+      <DependentUpon>RegisterClientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Company\RegisterCompanyPage.xaml.cs">
+      <DependentUpon>RegisterCompanyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\BaseRobotsViewModel.cs" />
+    <Compile Include="ViewModel\CurrentUser.cs" />
+    <Compile Include="ViewModel\RobotDetailsViewModel.cs" />
+    <Compile Include="ViewModel\RobotsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">
@@ -80,6 +123,79 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Client\RegisterClientPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Company\RegisterCompanyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Client\LoginClientPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Company\LoginCompanyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Leases\LeaseDetails.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Robots\AddRobot.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Robots\AddRobotModel.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Robots\Robots.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Robots\RobotDetails.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Leases\AddLease.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Leases\Leases.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Leases\CompleteLease.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

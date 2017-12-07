@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using Newtonsoft.Json;
 
 namespace RJB.HttpExtinction.HttpRequests.Helpers
@@ -104,7 +105,7 @@ namespace RJB.HttpExtinction.HttpRequests.Helpers
             HttpResponseMessage response;
             try
             {
-                HttpContent content = new StringContent(JsonConvert.SerializeObject(data));
+                HttpContent content = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
                 response = Client.PostAsync(address, content).Result;
             }
             catch (Exception ex)

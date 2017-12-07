@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RJF.MobileApp.Pages.Robots.AddRobot">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Add new robots." Margin="0,20" FontSize="20" HorizontalOptions="CenterAndExpand"/>
+
+            <Label Text="Select robot model" Margin="0,5" FontSize="Small"/>
+            <Picker x:Name="RobotModel">
+                
+            </Picker>
+
+            <Entry x:Name="PricePerDay" Placeholder="Price Per Day" Keyboard="Numeric"/>
+
+            <Entry x:Name="CountRobots" Placeholder="Count Robots" Keyboard="Numeric"/>
+
+            <Label x:Name="AddRobotFailed" Text="Add robots failed." TextColor="Red" IsVisible="False" Margin="0,20" HorizontalOptions="CenterAndExpand" FontSize="Medium"/>
+
+            <Button Clicked="AddRobotButton_Clicked" Text="Add robot"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
