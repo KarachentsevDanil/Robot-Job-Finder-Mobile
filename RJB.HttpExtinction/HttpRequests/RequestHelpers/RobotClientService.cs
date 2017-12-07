@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using RJF.MobileApp.HttpRequests.Helpers;
-using RJF.MobileApp.Model.Robots;
-using RJF.MobileApp.ViewModel;
+using RJB.HttpExtinction.HttpRequests.Helpers;
+using RJB.Model.Model.Robots;
+using RJB.Model.ViewModel;
 
-namespace RJF.MobileApp.HttpRequests.RequestHelpers
+namespace RJB.HttpExtinction.HttpRequests.RequestHelpers
 {
     public static class RobotClientService
     {

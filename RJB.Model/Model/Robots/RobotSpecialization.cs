@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
-using RJF.MobileApp.Model.Specializations;
+using RJB.Model.Model.Specializations;
 
-namespace RJF.MobileApp.Model.Robots
+namespace RJB.Model.Model.Robots
 {
     [JsonObject(IsReference = true)]
     public class RobotModelSpecialization

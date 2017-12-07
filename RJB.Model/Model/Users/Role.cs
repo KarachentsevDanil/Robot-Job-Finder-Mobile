@@ -1,4 +1,4 @@
-﻿namespace RJF.MobileApp.Model.Users
+﻿namespace RJB.Model.Model.Users
 {
     public enum Role
     {

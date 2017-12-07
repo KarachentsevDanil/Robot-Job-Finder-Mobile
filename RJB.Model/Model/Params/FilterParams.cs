@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace RJF.MobileApp.Model.Params
+namespace RJB.Model.Model.Params
 {
     public class FilterParams<T> where T : class
     {

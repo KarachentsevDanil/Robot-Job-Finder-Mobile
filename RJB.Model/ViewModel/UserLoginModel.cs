@@ -1,4 +1,4 @@
-﻿namespace RJF.MobileApp.ViewModel
+﻿namespace RJB.Model.ViewModel
 {
     public class UserLoginModel
     {

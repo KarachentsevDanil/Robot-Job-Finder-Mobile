@@ -1,8 +1,8 @@
 ﻿using System;
 using Newtonsoft.Json;
-using RJF.MobileApp.Model.Users;
+using RJB.Model.Model.Users;
 
-namespace RJF.MobileApp.Model.Robots
+namespace RJB.Model.Model.Robots
 {
     [JsonObject(IsReference = true)]
     public class RobotModelFeedback

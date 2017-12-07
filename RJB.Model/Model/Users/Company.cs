@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using RJF.MobileApp.Model.Robots;
+using RJB.Model.Model.Robots;
 
-namespace RJF.MobileApp.Model.Users
+namespace RJB.Model.Model.Users
 {
     [JsonObject(IsReference = true)]
     public class Company

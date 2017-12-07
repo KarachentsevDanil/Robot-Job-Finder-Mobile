@@ -1,9 +1,9 @@
 ﻿using System;
-using RJF.MobileApp.HttpRequests.Helpers;
-using RJF.MobileApp.Model.Users;
-using RJF.MobileApp.ViewModel;
+using RJB.HttpExtinction.HttpRequests.Helpers;
+using RJB.Model.Model.Users;
+using RJB.Model.ViewModel;
 
-namespace RJF.MobileApp.HttpRequests.RequestHelpers
+namespace RJB.HttpExtinction.HttpRequests.RequestHelpers
 {
     public static class UserClientService
     {

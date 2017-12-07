@@ -1,4 +1,4 @@
-﻿namespace RJF.MobileApp.HttpRequests.Helpers
+﻿namespace RJB.HttpExtinction.HttpRequests.Helpers
 {
     public static class Constants
     {

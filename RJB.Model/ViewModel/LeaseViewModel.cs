@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using RJF.MobileApp.Model.Robots;
-using RJF.MobileApp.Model.Specializations;
+using RJB.Model.Model.Robots;
+using RJB.Model.Model.Specializations;
 
-namespace RJF.MobileApp.ViewModel
+namespace RJB.Model.ViewModel
 {
     public class LeaseViewModel
     {

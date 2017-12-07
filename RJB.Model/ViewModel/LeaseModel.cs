@@ -1,6 +1,6 @@
-﻿using RJF.MobileApp.Model.Leases;
+﻿using RJB.Model.Model.Leases;
 
-namespace RJF.MobileApp.ViewModel
+namespace RJB.Model.ViewModel
 {
     public class LeaseModel : Lease
     {

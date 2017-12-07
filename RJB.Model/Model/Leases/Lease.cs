@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using RJF.MobileApp.Model.Robots;
-using RJF.MobileApp.Model.Users;
+using RJB.Model.Model.Robots;
+using RJB.Model.Model.Users;
 
-namespace RJF.MobileApp.Model.Leases
+namespace RJB.Model.Model.Leases
 {
     [JsonObject(IsReference = true)]
     public class Lease

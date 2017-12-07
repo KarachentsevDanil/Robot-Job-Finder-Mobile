@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using RJF.MobileApp.Model.Robots;
+using RJB.Model.Model.Robots;
 
-namespace RJF.MobileApp.ViewModel
+namespace RJB.Model.ViewModel
 {
     public class RobotViewModel : Robot
     {

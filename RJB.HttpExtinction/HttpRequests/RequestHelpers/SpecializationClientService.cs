@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using RJF.MobileApp.HttpRequests.Helpers;
-using RJF.MobileApp.Model.Specializations;
+using RJB.HttpExtinction.HttpRequests.Helpers;
+using RJB.Model.Model.Specializations;
 
-namespace RJF.MobileApp.HttpRequests.RequestHelpers
+namespace RJB.HttpExtinction.HttpRequests.RequestHelpers
 {
     public static class SpecializationClientService
     {

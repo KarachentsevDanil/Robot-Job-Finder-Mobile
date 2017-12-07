@@ -1,4 +1,4 @@
-﻿namespace RJF.MobileApp.Model.Leases
+﻿namespace RJB.Model.Model.Leases
 {
     public enum LeaseStatus
     {

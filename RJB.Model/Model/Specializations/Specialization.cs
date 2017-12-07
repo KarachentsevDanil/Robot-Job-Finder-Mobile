@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace RJF.MobileApp.Model.Specializations
+namespace RJB.Model.Model.Specializations
 {
     [JsonObject(IsReference = true)]
     public class Specialization

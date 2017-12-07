@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RJF.MobileApp.ViewModel
+namespace RJB.Model.ViewModel
 {
     public class CollectionResult<T> where T : class
     {

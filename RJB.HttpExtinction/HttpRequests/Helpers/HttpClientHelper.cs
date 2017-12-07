@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
 
-namespace RJF.MobileApp.HttpRequests.Helpers
+namespace RJB.HttpExtinction.HttpRequests.Helpers
 {
     public static class HttpClientHelper
     {

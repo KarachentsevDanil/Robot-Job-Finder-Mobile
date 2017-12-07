@@ -1,4 +1,4 @@
-﻿namespace RJF.MobileApp.Model.Robots
+﻿namespace RJB.Model.Model.Robots
 {
     public enum Rating
     {

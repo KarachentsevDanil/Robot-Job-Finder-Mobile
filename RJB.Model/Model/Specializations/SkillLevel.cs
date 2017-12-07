@@ -1,4 +1,4 @@
-﻿namespace RJF.MobileApp.Model.Specializations
+﻿namespace RJB.Model.Model.Specializations
 {
     public enum SkillLevel
     {

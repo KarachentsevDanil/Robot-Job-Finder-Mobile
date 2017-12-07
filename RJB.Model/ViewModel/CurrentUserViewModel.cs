@@ -1,6 +1,6 @@
-﻿using RJF.MobileApp.Model.Users;
+﻿using RJB.Model.Model.Users;
 
-namespace RJF.MobileApp.ViewModel
+namespace RJB.Model.ViewModel
 {
     public class CurrentUserViewModel
     {
