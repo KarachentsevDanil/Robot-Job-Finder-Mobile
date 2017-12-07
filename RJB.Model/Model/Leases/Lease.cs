@@ -30,6 +30,7 @@ namespace RJB.Model.Model.Leases
 
         public virtual ICollection<RobotLease> RobotLeases { get; set; }
 
+        [JsonIgnore]
         public double? TotalPrice
         {
             get

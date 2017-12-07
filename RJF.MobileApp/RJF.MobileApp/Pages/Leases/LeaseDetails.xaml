@@ -10,10 +10,22 @@
         <StackLayout>
 
             <StackLayout Spacing="20" Padding="15">
-                <Label Text="{Binding Lease.StartDate}" FontSize="Medium"/>
-                <Label Text="{Binding Lease.EndDate}" FontSize="Medium"/>
-                <Label Text="{Binding Lease.Feedback}" FontSize="Medium"/>
-                <Label Text="{Binding Lease.TotalPrice}" FontSize="Medium"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Start Date:" FontSize="Medium"/>
+                    <Label Text="{Binding Lease.StartDate,StringFormat='{0:MM/dd/yy}'}" FontSize="Medium"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="End Date:" FontSize="Medium"/>
+                    <Label Text="{Binding Lease.EndDate,StringFormat='{0:MM/dd/yy}'}" FontSize="Medium"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Feedback:" FontSize="Medium"/>
+                    <Label Text="{Binding Lease.Feedback}" FontSize="Medium"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Total Price:" FontSize="Medium"/>
+                    <Label Text="{Binding Lease.TotalPrice}" FontSize="Medium"/>
+                </StackLayout>
             </StackLayout>
 
             <StackLayout>
@@ -21,15 +33,25 @@
 
                 <ListView x:Name="RobotsList"
                           HasUnevenRows="True"
+                          SeparatorColor="LightGray"
                           ItemsSource="{Binding Lease.RobotLeases}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <ViewCell.View>
-                                    <StackLayout>
-                                        <Label Text="{Binding Robot.Company.Name}" FontSize="Large" />
-                                        <Label Text="{Binding Robot.RobotModel.Name}" FontSize="Large" />
-                                        <Label Text="{Binding Robot.PricePerDay}" FontSize="Medium" />
+                                    <StackLayout Margin="0, 3">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Company:" FontSize="Medium"/>
+                                            <Label Text="{Binding Robot.Company.Name}" FontSize="Medium" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Model:" FontSize="Medium"/>
+                                            <Label Text="{Binding Robot.RobotModel.Name}" FontSize="Medium" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Price Per Day:" FontSize="Medium"/>
+                                            <Label Text="{Binding Robot.PricePerDay}" FontSize="Medium" />
+                                        </StackLayout>
                                     </StackLayout>
                                 </ViewCell.View>
                             </ViewCell>

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using RJB.HttpExtinction.HttpRequests.RequestHelpers;
 using RJB.Model.Model.Leases;
 using RJF.MobileApp.Pages.Layouts;
@@ -17,7 +19,13 @@ namespace RJF.MobileApp.Pages.Leases
         public Leases()
         {
             InitializeComponent();
-            _viewModel = new LeasesViewModel();
+            var leases = LeaseClientService.GetLeaseOfClient(CurrentUser.CurrentUserModel.UserId).Collection;
+
+            _viewModel = new LeasesViewModel
+            {
+                Leases = new ObservableCollection<Lease>(leases)
+            };
+
             BindingContext = _viewModel;
         }
 
@@ -27,7 +35,7 @@ namespace RJF.MobileApp.Pages.Leases
             if (item == null)
                 return;
 
-            await Navigation.PushAsync(new LeaseDetails());
+            await Navigation.PushAsync(new LeaseDetails(new LeaseDetailsViewModel(item)));
 
             // Manually deselect item
             ItemsListView.SelectedItem = null;

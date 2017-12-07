@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,10 +21,12 @@ namespace RJF.MobileApp.Pages.Robots
         public Robots()
         {
             InitializeComponent();
+
+            var robots = RobotClientService.GetRobotsByOfCompany(CurrentUser.CurrentUserModel.UserId).Collection;
+
             _viewModel = new RobotsViewModel
             {
-                RobotsModel = RobotClientService.GetRobotsByOfCompany(CurrentUser.CurrentUserModel.UserId).Collection
-                    .ToList()
+                RobotsModel = new ObservableCollection<Robot>(robots) 
             };
 
             BindingContext = _viewModel;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using RJB.HttpExtinction.HttpRequests.RequestHelpers;
 using RJB.Model.Model.Leases;
@@ -15,7 +16,7 @@ namespace RJF.MobileApp.Pages.Leases
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddLease : ContentPage
     {
-        public List<Robot> Robots { get; set; }
+        public ObservableCollection<Robot> Robots { get; set; }
         public static List<Specialization> Specializations { get; set; }
         public List<int> SelectedIds { get; set; }
         public Command<List<Robot>> LoadRobotsCommand { get; set; }
@@ -31,12 +32,22 @@ namespace RJF.MobileApp.Pages.Leases
                 Specialization.Items.Add(specialization.Name);
             }
 
+            SelectedIds = new List<int>();
+            Robots = new ObservableCollection<Robot>();
             BindingContext = this;
         }
 
         public void UpdateRobotsLease(List<Robot> robots)
         {
-            Robots = robots;
+            if (robots == null)
+                return;
+
+            Robots.Clear();
+
+            foreach (var robot in robots)
+            {
+                Robots.Add(robot);
+            }
         }
 
         private void SearchButton_Clicked(object sender, EventArgs e)
@@ -92,7 +103,8 @@ namespace RJF.MobileApp.Pages.Leases
             {
                 ClientId = CurrentUser.CurrentUserModel.UserId,
                 StartDate = StartDate.Date,
-                EndDate = EndDate.Date
+                EndDate = EndDate.Date,
+                RobotLeases = new List<RobotLease>(SelectedIds.Capacity)
             };
 
             foreach (var robotId in SelectedIds)

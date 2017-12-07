@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -14,18 +15,18 @@ namespace RJF.MobileApp.ViewModel.Leases
 {
     public class LeasesViewModel: BaseCommonViewModel
     {
-        public List<Lease> Leases { get; set; }
+        public ObservableCollection<Lease> Leases { get; set; }
         public Command LoadLeasesCommand { get; set; }
 
         public LeasesViewModel()
         {
             Title = "My Leases";
-            Leases = new List<Lease>();
+            Leases = new ObservableCollection<Lease>();
             LoadLeasesCommand = new Command(ExecuteLoadItemsCommand);
 
             MessagingCenter.Subscribe<AddLease, Lease>(this, "AddLease", (obj, item) =>
             {
-                Leases = LeaseClientService.GetLeaseOfClient(CurrentUser.CurrentUserModel.UserId).Collection.ToList();
+                RefreshData();
             });
         }
 
@@ -38,8 +39,7 @@ namespace RJF.MobileApp.ViewModel.Leases
 
             try
             {
-                Leases.Clear();
-                Leases = LeaseClientService.GetLeaseOfClient(CurrentUser.CurrentUserModel.UserId).Collection.ToList();
+                RefreshData();
             }
             catch (Exception ex)
             {
@@ -48,6 +48,18 @@ namespace RJF.MobileApp.ViewModel.Leases
             finally
             {
                 IsBusy = false;
+            }
+        }
+
+        private void RefreshData()
+        {
+            var leases = LeaseClientService.GetLeaseOfClient(CurrentUser.CurrentUserModel.UserId).Collection;
+            foreach (var lease in leases)
+            {
+                if (Leases.All(x => x.LeaseId != lease.LeaseId))
+                {
+                    Leases.Add(lease);
+                }
             }
         }
     }

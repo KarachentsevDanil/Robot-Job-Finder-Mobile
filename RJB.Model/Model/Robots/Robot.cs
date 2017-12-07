@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 using RJB.Model.Model.Leases;
 using RJB.Model.Model.Users;
@@ -35,5 +36,8 @@ namespace RJB.Model.Model.Robots
         public virtual RobotModel RobotModel { get; set; }
 
         public virtual ICollection<RobotLease> RobotLeases { get; set; }
+
+        [JsonIgnore]
+        public string Specialization => RobotModel?.RobotModelSpecializations?.FirstOrDefault()?.Specialization?.Name;
     }
 }

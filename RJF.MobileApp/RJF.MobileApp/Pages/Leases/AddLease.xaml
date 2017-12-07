@@ -21,7 +21,7 @@
                 <DatePicker x:Name="EndDate" Format="D">
                 </DatePicker>
 
-                <Button Clicked="SearchButton_Clicked" Text="Add robot"/>
+                <Button Clicked="SearchButton_Clicked" Text="Search for a robot"/>
                 
                 <Button Clicked="AddLeaseButton_Clicked" Text="Lease robots"/>
             </StackLayout>
@@ -33,6 +33,7 @@
                           ItemsSource="{Binding Robots}"
                           VerticalOptions="FillAndExpand"
                           HasUnevenRows="true"
+                          SeparatorColor="Black"
                           RefreshCommand="{Binding LoadRobotsCommand}"
                           IsPullToRefreshEnabled="true"
                           IsRefreshing="{Binding IsBusy, Mode=OneWay}"
@@ -41,18 +42,30 @@
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Padding="10">
-                                    <Label Text="{Binding RobotId}" 
-                                           LineBreakMode="NoWrap" 
-                                           FontSize="16" />
-
-                                    <Label Text="{Binding RobotModel.Name}" 
-                                           LineBreakMode="NoWrap" 
-                                           FontSize="16" />
-                                    <Label Text="{Binding RobotModel.Description}" 
-                                           LineBreakMode="NoWrap"
-                                           FontSize="16" />
-
-                                    <Label Text="{Binding PricePerDay}" FontSize="16" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="#:" FontSize="Medium"/>
+                                        <Label Text="{Binding RobotId}" FontSize="Medium" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Company:" FontSize="Medium"/>
+                                        <Label Text="{Binding Company.Name}" FontSize="Medium" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Model:" FontSize="Medium"/>
+                                        <Label Text="{Binding RobotModel.Name}" FontSize="Medium" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Specialization:" FontSize="Medium"/>
+                                        <Label Text="{Binding Specialization}" FontSize="Medium" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Description:" FontSize="Medium"/>
+                                        <Label Text="{Binding RobotModel.Description}" FontSize="Medium" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Price Per Day:" FontSize="Medium"/>
+                                        <Label Text="{Binding PricePerDay}" FontSize="Medium" />
+                                    </StackLayout>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>

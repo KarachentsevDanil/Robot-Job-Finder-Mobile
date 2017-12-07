@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using RJB.HttpExtinction.HttpRequests.RequestHelpers;
@@ -11,18 +12,18 @@ namespace RJF.MobileApp.ViewModel
 {
     public class RobotsViewModel : BaseCommonViewModel
     {
-        public List<Robot> RobotsModel { get; set; }
+        public ObservableCollection<Robot> RobotsModel { get; set; }
         public Command LoadItemsCommand { get; set; }
 
         public RobotsViewModel()
         {
             Title = "My Robots";
-            RobotsModel = new List<Robot>();
+            RobotsModel = new ObservableCollection<Robot>();
             LoadItemsCommand = new Command(ExecuteLoadItemsCommand);
 
             MessagingCenter.Subscribe<AddRobot, Robot>(this, "AddRobot", (obj, item) =>
             {
-                RobotsModel = RobotClientService.GetRobotsByOfCompany(CurrentUser.CurrentUserModel.UserId).Collection.ToList();
+                RefreshData();
             });
         }
 
@@ -35,8 +36,7 @@ namespace RJF.MobileApp.ViewModel
 
             try
             {
-                RobotsModel.Clear();
-                RobotsModel = RobotClientService.GetRobotsByOfCompany(CurrentUser.CurrentUserModel.UserId).Collection.ToList();
+                RefreshData();
             }
             catch (Exception ex)
             {
@@ -45,6 +45,19 @@ namespace RJF.MobileApp.ViewModel
             finally
             {
                 IsBusy = false;
+            }
+        }
+
+
+        private void RefreshData()
+        {
+            var robots = RobotClientService.GetRobotsByOfCompany(CurrentUser.CurrentUserModel.UserId).Collection;
+            foreach (var robot in robots)
+            {
+                if (RobotsModel.All(x => x.RobotId != robot.RobotId))
+                {
+                    RobotsModel.Add(robot);
+                }
             }
         }
     }
