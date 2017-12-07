@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using RJB.HttpExtinction.HttpRequests.RequestHelpers;
 using RJB.Model.Model.Leases;
-using RJB.Model.Model.Robots;
 using RJF.MobileApp.Pages.Leases;
 using Xamarin.Forms;
 

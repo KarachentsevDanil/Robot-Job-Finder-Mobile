@@ -35,11 +35,11 @@ namespace RJB.HttpExtinction.HttpRequests.RequestHelpers
             }
         }
 
-        public static LeaseModel GetLeaseDetails(int leaseId)
+        public static Lease GetLeaseDetails(int leaseId)
         {
             try
             {
-                var lease = HttpClientHelper.GetResult<LeaseModel>(string.Concat(LeasesUrl, $"GetLeaseDetails?leaseId={leaseId}"));
+                var lease = HttpClientHelper.GetResult<Lease>(string.Concat(LeasesUrl, $"GetLeaseDetails?leaseId={leaseId}"));
                 return lease;
             }
             catch (Exception e)
