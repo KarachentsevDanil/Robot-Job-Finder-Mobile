@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace RJF.MobileApp.ViewModel
 {
-    public class BaseRobotsViewModel : INotifyPropertyChanged
+    public class BaseCommonViewModel : INotifyPropertyChanged
     {
 
         bool _isBusy;

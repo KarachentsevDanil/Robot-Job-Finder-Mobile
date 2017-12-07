@@ -2,7 +2,7 @@
 
 namespace RJF.MobileApp.ViewModel
 {
-    public class RobotDetailsViewModel : BaseRobotsViewModel
+    public class RobotDetailsViewModel : BaseCommonViewModel
     {
         public Robot Robot { get; set; }
         public RobotDetailsViewModel(Robot robot)

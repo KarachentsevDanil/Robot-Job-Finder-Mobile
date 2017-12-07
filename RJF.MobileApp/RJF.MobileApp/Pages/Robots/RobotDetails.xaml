@@ -4,32 +4,36 @@
              x:Class="RJF.MobileApp.Pages.Robots.RobotDetails"
              Title="{Binding Title}">
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
-            <Label Text="{Binding Robot.RobotModel.Name}" FontSize="Medium"/>
-            <Label Text="{Binding Robot.RobotModel.Description}" FontSize="Small"/>
-            <Label Text="{Binding Robot.PricePerDay}" FontSize="Small"/>
+        <StackLayout>
+
+            <StackLayout Spacing="20" Padding="15">
+                <Label Text="{Binding Robot.RobotModel.Name}" FontSize="Medium"/>
+                <Label Text="{Binding Robot.RobotModel.Description}" FontSize="Small"/>
+                <Label Text="{Binding Robot.PricePerDay}" FontSize="Small"/>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Leases of robot" FontSize="Large" Margin="0,20" HorizontalTextAlignment="Center"/>
+
+                <ListView x:Name="LeasesList"
+                          HasUnevenRows="True"
+                          ItemsSource="{Binding Robot.RobotLeases}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout>
+                                        <Label Text="{Binding Lease.Client.FullName}" FontSize="Large" />
+                                        <Label Text="{Binding Lease.StartDate}" FontSize="Medium" />
+                                        <Label Text="{Binding Lease.EndDate}" FontSize="Medium" />
+                                        <Label Text="{Binding Lease.Feedback}" FontSize="Medium" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
         </StackLayout>
-        
-        <!--<StackLayout>
-            <Label Text="Leases of robot" FontSize="Large" Margin="0,20" HorizontalTextAlignment="Center"/>
-            <ListView x:Name="LeasesList"
-                      HasUnevenRows="True"
-                      ItemsSource="{Binding Robot.RobotLeases}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <ViewCell.View>
-                                <StackLayout>
-                                    <Label Text="{Binding Lease.Client.FullName}" FontSize="Large" />
-                                    <Label Text="{Binding Lease.StartDate}" FontSize="Medium" />
-                                    <Label Text="{Binding Lease.EndDate}" FontSize="Medium" />
-                                    <Label Text="{Binding Lease.Feedback}" FontSize="Medium" />
-                                </StackLayout>
-                            </ViewCell.View>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>

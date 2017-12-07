@@ -45,10 +45,15 @@ namespace RJF.MobileApp.Pages.Robots
             {
                 ClearForm();
                 AddRobot.RobotModels = RobotClientService.GetRobotsModel();
-
-                await DisplayAlert("Info", "Robot model was added", "OK");
+                await Navigation.PopAsync();
             }
         }
+
+        private async void BackButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
         private void ClearForm()
         {
             AddRobotModelFailed.IsVisible = false;

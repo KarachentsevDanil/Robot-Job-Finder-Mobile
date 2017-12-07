@@ -2,11 +2,41 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RJF.MobileApp.Pages.Leases.Leases">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Log off" Clicked="LogOff_OnClicked" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView x:Name="ItemsListView" 
+                      ItemsSource="{Binding Leases}"
+                      VerticalOptions="FillAndExpand"
+                      HasUnevenRows="true"
+                      RefreshCommand="{Binding LoadLeasesCommand}"
+                      IsPullToRefreshEnabled="true"
+                      IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                      CachingStrategy="RecycleElement"
+                      ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding LeaseId}" 
+                                       LineBreakMode="NoWrap" 
+                                       FontSize="16" />
+
+                                <Label Text="{Binding StartDate}" 
+                                       LineBreakMode="NoWrap" 
+                                       FontSize="16" />
+                                <Label Text="{Binding EndDate}" 
+                                       LineBreakMode="NoWrap"
+                                       FontSize="16" />
+
+                                <Label Text="{Binding TotalPrice}" FontSize="18" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

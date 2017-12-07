@@ -4,9 +4,30 @@
              x:Class="RJF.MobileApp.Pages.Leases.CompleteLease">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout Spacing="20" Padding="15">
+                <Label Text="{Binding Lease.LeaseId}" FontSize="Medium"/>
+                <Label Text="{Binding Lease.StartDate}" FontSize="Medium"/>
+                <Label Text="{Binding Lease.EndDate}" FontSize="Medium"/>
+                <Label Text="{Binding Lease.Feedback}" FontSize="Medium"/>
+                <Label Text="{Binding Lease.TotalPrice}" FontSize="Medium"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Set lease rating" FontSize="Large" />
+                <Picker x:Name="Rating">
+                    <Picker.Items>
+                        <x:String>Poor</x:String>
+                        <x:String>Bad</x:String>
+                        <x:String>Medium</x:String>
+                        <x:String>Good</x:String>
+                        <x:String>Excelent</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Label Text="Feedback" FontSize="Large" />
+                <Editor x:Name="Feedback"/>
+
+                <Button Text="Complete lease" Clicked="CompleteButton_Clicked"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

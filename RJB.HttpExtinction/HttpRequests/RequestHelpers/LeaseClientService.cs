@@ -22,7 +22,7 @@ namespace RJB.HttpExtinction.HttpRequests.RequestHelpers
             }
         }
 
-        public static bool CompleateLease(LeaseViewModel lease)
+        public static bool CompleateLease(Lease lease)
         {
             try
             {

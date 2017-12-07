@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 using RJB.Model.Model.Robots;
 using RJB.Model.Model.Users;
@@ -28,5 +29,15 @@ namespace RJB.Model.Model.Leases
         public virtual Client Client { get; set; }
 
         public virtual ICollection<RobotLease> RobotLeases { get; set; }
+
+        public double? TotalPrice
+        {
+            get
+            {
+                var robotPriceSum = RobotLeases.Sum(x => x.Robot.PricePerDay);
+                var days = EndDate - StartDate;
+                return days.Days * robotPriceSum;
+            }
+        }
     }
 }

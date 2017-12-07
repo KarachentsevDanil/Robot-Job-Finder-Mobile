@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RJB.HttpExtinction.HttpRequests.RequestHelpers;
 using RJB.Model.Model.Robots;
+using RJF.MobileApp.Pages.Layouts;
 using RJF.MobileApp.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -51,6 +52,18 @@ namespace RJF.MobileApp.Pages.Robots
 
             if (_viewModel.RobotsModel.Count == 0)
                 _viewModel.LoadItemsCommand.Execute(null);
+        }
+
+        private async void AddRobotModel_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddRobotModel());
+        }
+
+        private async void LogOff_OnClicked(object sender, EventArgs e)
+        {
+            CurrentUser.CurrentUserModel = null;
+            UserClientService.LogOff();
+            await Navigation.PushModalAsync(new MainLayoutPage());
         }
     }
 }

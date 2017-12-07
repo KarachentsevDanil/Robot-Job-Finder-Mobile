@@ -4,6 +4,8 @@
              x:Class="RJF.MobileApp.Pages.Robots.Robots">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add robots" Clicked="AddRobot_Clicked" />
+        <ToolbarItem Text="Add robot model" Clicked="AddRobotModel_Clicked" />
+        <ToolbarItem Text="Log off" Clicked="LogOff_OnClicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
@@ -29,11 +31,9 @@
                                        FontSize="16" />
                                 <Label Text="{Binding RobotModel.Description}" 
                                        LineBreakMode="NoWrap"
-                                       FontSize="13" />
-                                
-                                <Label Text="{Binding PricePerHour}" 
-                                       LineBreakMode="NoWrap" 
                                        FontSize="16" />
+                                
+                                <Label Text="{Binding PricePerDay}" FontSize="16" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

@@ -1,12 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RJF.MobileApp.Pages.Leases.LeaseDetails">
+             x:Class="RJF.MobileApp.Pages.Leases.LeaseDetails"
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Complete lease" Clicked="CompleteLeaseButton_Clicked"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+
+            <StackLayout Spacing="20" Padding="15">
+                <Label Text="{Binding Lease.StartDate}" FontSize="Medium"/>
+                <Label Text="{Binding Lease.EndDate}" FontSize="Medium"/>
+                <Label Text="{Binding Lease.Feedback}" FontSize="Medium"/>
+                <Label Text="{Binding Lease.TotalPrice}" FontSize="Medium"/>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Robots" FontSize="Large" Margin="0,20" HorizontalTextAlignment="Center"/>
+
+                <ListView x:Name="RobotsList"
+                          HasUnevenRows="True"
+                          ItemsSource="{Binding Lease.RobotLeases}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout>
+                                        <Label Text="{Binding Robot.Company.Name}" FontSize="Large" />
+                                        <Label Text="{Binding Robot.RobotModel.Name}" FontSize="Large" />
+                                        <Label Text="{Binding Robot.PricePerDay}" FontSize="Medium" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

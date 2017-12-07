@@ -13,19 +13,7 @@ namespace RJF.MobileApp.Pages.Layouts
                 Title = "My Robots"
             };
 
-            Page addRobot = new NavigationPage(new AddRobot())
-            {
-                Title = "Add robot"
-            };
-
-            Page addRobotModel = new NavigationPage(new AddRobotModel())
-            {
-                Title = "Add robot model"
-            };
-
             Children.Add(robotsPage);
-            Children.Add(addRobot);
-            Children.Add(addRobotModel);
 
             Title = Children[0].Title;
         }

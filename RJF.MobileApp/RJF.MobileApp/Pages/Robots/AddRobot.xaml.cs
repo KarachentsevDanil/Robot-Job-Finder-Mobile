@@ -49,9 +49,14 @@ namespace RJF.MobileApp.Pages.Robots
             else
             {
                 ClearForm();
-                MessagingCenter.Send(this, "AddItem", robot);
-                await DisplayAlert("Info", "Robots was added", "OK");
+                MessagingCenter.Send(this, "AddRobot", robot);
+                await Navigation.PopAsync();
             }
+        }
+
+        private async void BackButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
 
         private void ClearForm()

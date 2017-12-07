@@ -4,9 +4,61 @@
              x:Class="RJF.MobileApp.Pages.Leases.AddLease">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+
+            <StackLayout>
+                <Label Text="Add new robots." Margin="0,20" FontSize="20" HorizontalOptions="CenterAndExpand"/>
+
+                <Label Text="Select robot model" Margin="0,5" FontSize="Small"/>
+                <Picker x:Name="Specialization">
+
+                </Picker>
+
+                <Label Text="Start Date" FontSize="Medium" />
+                <DatePicker x:Name="StartDate" Format="D">
+                </DatePicker>
+
+                <Label Text="Start Date" FontSize="Medium" />
+                <DatePicker x:Name="EndDate" Format="D">
+                </DatePicker>
+
+                <Button Clicked="SearchButton_Clicked" Text="Add robot"/>
+                
+                <Button Clicked="AddLeaseButton_Clicked" Text="Lease robots"/>
+            </StackLayout>
+            <StackLayout>
+
+                <Label Text="Tap to select robot" Margin="0,5" FontSize="Small"/>
+                
+                <ListView x:Name="ItemsListView" 
+                          ItemsSource="{Binding Robots}"
+                          VerticalOptions="FillAndExpand"
+                          HasUnevenRows="true"
+                          RefreshCommand="{Binding LoadRobotsCommand}"
+                          IsPullToRefreshEnabled="true"
+                          IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                          ItemSelected="OnItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding RobotId}" 
+                                           LineBreakMode="NoWrap" 
+                                           FontSize="16" />
+
+                                    <Label Text="{Binding RobotModel.Name}" 
+                                           LineBreakMode="NoWrap" 
+                                           FontSize="16" />
+                                    <Label Text="{Binding RobotModel.Description}" 
+                                           LineBreakMode="NoWrap"
+                                           FontSize="16" />
+
+                                    <Label Text="{Binding PricePerDay}" FontSize="16" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
