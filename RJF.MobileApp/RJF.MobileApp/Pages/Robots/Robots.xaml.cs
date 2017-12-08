@@ -65,8 +65,7 @@ namespace RJF.MobileApp.Pages.Robots
         private async void LogOff_OnClicked(object sender, EventArgs e)
         {
             CurrentUser.CurrentUserModel = null;
-            UserClientService.LogOff();
-            await Navigation.PushModalAsync(new MainLayoutPage());
+            await Navigation.PopAsync();
         }
     }
 }

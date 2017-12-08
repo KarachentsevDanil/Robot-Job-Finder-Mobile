@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using RJB.HttpExtinction.HttpRequests.RequestHelpers;
+using RJB.Model.Model.Robots;
 using RJB.Model.Model.Specializations;
 using RJB.Model.ViewModel;
 using Xamarin.Forms;
@@ -33,8 +34,14 @@ namespace RJF.MobileApp.Pages.Robots
             {
                 Name = Name.Text,
                 Description = Description.Text,
-                SpecializationId = specializationId
+                RobotModelSpecializations = new List<RobotModelSpecialization>()
             };
+
+            robot.RobotModelSpecializations.Add(new RobotModelSpecialization()
+            {
+                SpecializationId = specializationId,
+                SkillLevel = SkillLevel.High
+            });
 
             var isRobotAdd = RobotClientService.AddRobotModel(robot);
             if (!isRobotAdd)

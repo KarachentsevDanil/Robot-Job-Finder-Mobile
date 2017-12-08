@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using RJB.HttpExtinction.HttpRequests.RequestHelpers;
 using RJB.Model.Model.Robots;
+using RJB.Model.ViewModel;
 using RJF.MobileApp.Pages.Robots;
 using Xamarin.Forms;
 
@@ -21,7 +22,7 @@ namespace RJF.MobileApp.ViewModel
             RobotsModel = new ObservableCollection<Robot>();
             LoadItemsCommand = new Command(ExecuteLoadItemsCommand);
 
-            MessagingCenter.Subscribe<AddRobot, Robot>(this, "AddRobot", (obj, item) =>
+            MessagingCenter.Subscribe<AddRobot, RobotViewModel>(this, "AddRobot", (obj, item) =>
             {
                 RefreshData();
             });

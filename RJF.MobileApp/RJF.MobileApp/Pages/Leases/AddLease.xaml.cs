@@ -128,6 +128,12 @@ namespace RJF.MobileApp.Pages.Leases
             }
         }
 
+        private async void LogOff_OnClicked(object sender, EventArgs e)
+        {
+            CurrentUser.CurrentUserModel = null;
+            await Navigation.PopAsync();
+        }
+
         private void ClearForm()
         {
             LoadRobotsCommand.Execute(new List<Robot>());
