@@ -7,18 +7,17 @@ namespace RJF.MobileApp.ViewModel
 {
     public class BaseCommonViewModel : INotifyPropertyChanged
     {
-
-        bool _isBusy;
+        private bool _isBusy;
         public bool IsBusy
         {
             get => _isBusy;
             set => SetProperty(ref _isBusy, value);
         }
 
-        string _title = string.Empty;
+        private string _title = string.Empty;
         public string Title
         {
-            get { return _title; }
+            get => _title;
             set => SetProperty(ref _title, value);
         }
 
@@ -40,10 +39,8 @@ namespace RJF.MobileApp.ViewModel
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             var changed = PropertyChanged;
-            if (changed == null)
-                return;
 
-            changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            changed?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
     }
