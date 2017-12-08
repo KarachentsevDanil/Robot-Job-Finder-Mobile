@@ -33,25 +33,6 @@ namespace RJB.HttpExtinction.HttpRequests.Helpers
             }
         }
 
-        public static void Post(string address)
-        {
-            HttpResponseMessage response;
-            try
-            {
-                HttpContent content = new StringContent(string.Empty);
-                response = Client.PutAsync(address, content).Result;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.GetBaseException().Message);
-            }
-
-            if (!response.IsSuccessStatusCode)
-            {
-                throw new Exception(response.Content.ReadAsStringAsync().Result);
-            }
-        }
-
         public static void PostData<T>(T data, string address)
         {
             var response = PostDataAndGetHttpResponse(data, address);

@@ -65,10 +65,5 @@ namespace RJB.HttpExtinction.HttpRequests.RequestHelpers
         {
             return HttpClientHelper.GetResult<CurrentUserViewModel>(string.Concat(UserUrl, "GetCurrentUser"));
         }
-
-        public static void LogOff()
-        {
-            HttpClientHelper.Post(string.Concat(UserUrl, "LogOff"));
-        }
     }
 }
