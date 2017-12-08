@@ -1,6 +1,6 @@
 ﻿using RJB.Model.Model.Robots;
 
-namespace RJF.MobileApp.ViewModel
+namespace RJF.MobileApp.ViewModel.Robots
 {
     public class RobotDetailsViewModel : BaseCommonViewModel
     {

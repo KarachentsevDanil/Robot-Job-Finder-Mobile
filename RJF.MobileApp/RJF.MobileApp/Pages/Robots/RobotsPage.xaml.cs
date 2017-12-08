@@ -8,6 +8,7 @@ using RJB.HttpExtinction.HttpRequests.RequestHelpers;
 using RJB.Model.Model.Robots;
 using RJF.MobileApp.Pages.Layouts;
 using RJF.MobileApp.ViewModel;
+using RJF.MobileApp.ViewModel.Robots;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

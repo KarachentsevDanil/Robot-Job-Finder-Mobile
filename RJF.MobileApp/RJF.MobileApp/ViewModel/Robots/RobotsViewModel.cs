@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
@@ -9,7 +8,7 @@ using RJB.Model.ViewModel;
 using RJF.MobileApp.Pages.Robots;
 using Xamarin.Forms;
 
-namespace RJF.MobileApp.ViewModel
+namespace RJF.MobileApp.ViewModel.Robots
 {
     public class RobotsViewModel : BaseCommonViewModel
     {
@@ -48,7 +47,6 @@ namespace RJF.MobileApp.ViewModel
                 IsBusy = false;
             }
         }
-
 
         private void RefreshData()
         {

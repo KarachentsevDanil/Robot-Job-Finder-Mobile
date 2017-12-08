@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RJF.MobileApp.ViewModel;
+using RJF.MobileApp.ViewModel.Robots;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
