@@ -39,5 +39,7 @@ namespace RJB.Model.Model.Robots
 
         [JsonIgnore]
         public string Specialization => RobotModel?.RobotModelSpecializations?.FirstOrDefault()?.Specialization?.Name;
+
+        public string IsSelected { get; set; }
     }
 }

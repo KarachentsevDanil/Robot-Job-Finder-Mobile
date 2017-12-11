@@ -50,6 +50,8 @@ namespace RJF.MobileApp.ViewModel.Robots
 
         private void RefreshData()
         {
+            RobotsModel.Clear();
+            
             var robots = RobotClientService.GetRobotsByOfCompany(CurrentUser.CurrentUserModel.UserId).Collection;
             foreach (var robot in robots)
             {

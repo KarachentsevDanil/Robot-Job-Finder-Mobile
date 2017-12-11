@@ -49,6 +49,8 @@ namespace RJF.MobileApp.ViewModel.Leases
 
         private void RefreshData()
         {
+            Leases.Clear();
+
             var leases = LeaseClientService.GetLeaseOfClient(CurrentUser.CurrentUserModel.UserId).Collection;
             foreach (var lease in leases)
             {

@@ -93,6 +93,10 @@ namespace RJF.MobileApp.Pages.Leases
                 if (answer)
                 {
                     SelectedIds.Add(item.RobotId);
+                    item.IsSelected = "Selected";
+
+                    Robots.Remove(Robots.FirstOrDefault(x => x.RobotId == item.RobotId));
+                    Robots.Insert(0, item);
                 }
             }
         }

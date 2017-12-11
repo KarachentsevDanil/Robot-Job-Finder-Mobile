@@ -44,5 +44,10 @@ namespace RJF.MobileApp.Pages.Leases
                 await DisplayAlert("Info", "Error occure when lease completing. Try again.", "Ok");
             }
         }
+
+        private async void BackButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
     }
 }

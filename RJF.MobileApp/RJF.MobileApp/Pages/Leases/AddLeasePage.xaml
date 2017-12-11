@@ -20,7 +20,7 @@
                 <DatePicker x:Name="StartDate" Format="D">
                 </DatePicker>
 
-                <Label Text="Start Date" FontSize="Medium" />
+                <Label Text="End Date" FontSize="Medium" />
                 <DatePicker x:Name="EndDate" Format="D">
                 </DatePicker>
 
@@ -45,6 +45,9 @@
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Padding="10">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label HorizontalOptions="EndAndExpand" Text="{Binding IsSelected}" FontSize="Medium" />
+                                    </StackLayout>
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="#:" FontSize="Medium"/>
                                         <Label Text="{Binding RobotId}" FontSize="Medium" />

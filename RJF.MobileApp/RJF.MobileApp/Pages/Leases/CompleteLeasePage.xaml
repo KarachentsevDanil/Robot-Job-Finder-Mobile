@@ -42,6 +42,7 @@
                 <Editor x:Name="Feedback"/>
 
                 <Button Text="Complete lease" Clicked="CompleteButton_Clicked"/>
+                <Button Clicked="BackButton_Clicked" Text="Back"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

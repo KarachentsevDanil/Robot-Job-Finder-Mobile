@@ -31,7 +31,7 @@ namespace RJF.MobileApp.Pages.Leases
             }
             else
             {
-                await Navigation.PushModalAsync(new CompleteLease());
+                await Navigation.PushModalAsync(new CompleteLease(_model.Lease));
             }
         }
     }
