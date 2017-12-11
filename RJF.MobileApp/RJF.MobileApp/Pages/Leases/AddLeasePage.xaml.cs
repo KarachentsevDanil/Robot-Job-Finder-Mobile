@@ -64,6 +64,8 @@ namespace RJF.MobileApp.Pages.Leases
             };
 
             var robots = RobotClientService.GetRobotsOnSpecificDateRange(searchRobot);
+            AddLeaseButton.IsVisible = robots.Any();
+
             LoadRobotsCommand.Execute(robots);
         }
 
@@ -103,6 +105,12 @@ namespace RJF.MobileApp.Pages.Leases
 
         private async void AddLeaseButton_Clicked(object sender, EventArgs e)
         {
+            if (!SelectedIds.Any())
+            {
+                await DisplayAlert("Info", "Select at least one robot.", "Ok");
+                return;
+            }
+
             var leaseModel = new Lease
             {
                 ClientId = CurrentUser.CurrentUserModel.UserId,
@@ -110,7 +118,7 @@ namespace RJF.MobileApp.Pages.Leases
                 EndDate = EndDate.Date,
                 RobotLeases = new List<RobotLease>(SelectedIds.Capacity)
             };
-
+            
             foreach (var robotId in SelectedIds)
             {
                 leaseModel.RobotLeases.Add(new RobotLease

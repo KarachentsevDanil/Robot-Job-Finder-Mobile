@@ -1,6 +1,7 @@
 ﻿using System;
 using RJB.HttpExtinction.HttpRequests.RequestHelpers;
 using RJB.Model.Model.Leases;
+using RJF.MobileApp.ViewModel.Leases;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,6 +11,7 @@ namespace RJF.MobileApp.Pages.Leases
     public partial class CompleteLease : ContentPage
     {
         public Lease Lease { get; set; }
+        public LeaseDetails LeaseDetails { get; set; }
 
         public CompleteLease()
         {
@@ -17,10 +19,11 @@ namespace RJF.MobileApp.Pages.Leases
             BindingContext = this;
         }
 
-        public CompleteLease(Lease lease)
+        public CompleteLease(Lease lease, LeaseDetails leaseDetails)
         {
             InitializeComponent();
             Lease = lease;
+            LeaseDetails = leaseDetails;
             BindingContext = this;
         }
 
@@ -33,6 +36,8 @@ namespace RJF.MobileApp.Pages.Leases
             Lease.Feedback = Feedback.Text;
 
             var isSuccess = LeaseClientService.CompleateLease(Lease);
+            LeaseDetails.LeaseDetailsViewModel.Lease = LeaseClientService.GetLeaseDetails(Lease.LeaseId);
+
             if (isSuccess)
             {
                 await DisplayAlert("Info", "Lease successfully complete.", "Ok");
