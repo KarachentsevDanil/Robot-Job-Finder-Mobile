@@ -44,7 +44,7 @@ namespace RJB.HttpExtinction.HttpRequests.RequestHelpers
                 var robots = HttpClientHelper.GetResult<List<RobotModel>>(string.Concat(RobotsUrl, "GetRobotsModel"));
                 return robots;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return Enumerable.Empty<RobotModel>();
             }
@@ -96,7 +96,7 @@ namespace RJB.HttpExtinction.HttpRequests.RequestHelpers
                 var robots = HttpClientHelper.GetResult<CollectionResult<Robot>>(string.Concat(RobotsUrl, $"GetRobotsByOfCompany?companyId={companyId}"));
                 return robots;
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 return new CollectionResult<Robot>();
             }

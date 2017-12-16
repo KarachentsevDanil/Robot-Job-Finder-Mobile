@@ -9,16 +9,16 @@ namespace RJB.HttpExtinction.HttpRequests.RequestHelpers
     {
         private static string UserUrl = "/api/users/";
 
-        public static bool ClientLogin(UserLoginModel loginModel)
+        public static CurrentUserViewModel ClientLogin(UserLoginModel loginModel)
         {
             try
             {
-                HttpClientHelper.PostData(loginModel, string.Concat(UserUrl, "ClientLogin"));
-                return true;
+                var userViewModel = HttpClientHelper.PostDataAndGetResult<UserLoginModel, CurrentUserViewModel>(loginModel, string.Concat(UserUrl, "ClientLogin"));
+                return userViewModel;
             }
             catch (Exception)
             {
-                return false;
+                return null;
             }
         }
 
@@ -35,16 +35,18 @@ namespace RJB.HttpExtinction.HttpRequests.RequestHelpers
             }
         }
 
-        public static bool CompanyLogin(UserLoginModel loginModel)
+        public static CurrentUserViewModel CompanyLogin(UserLoginModel loginModel)
         {
             try
             {
-                HttpClientHelper.PostData(loginModel, string.Concat(UserUrl, "CompanyLogin"));
-                return true;
+                var userViewModel =
+                    HttpClientHelper.PostDataAndGetResult<UserLoginModel, CurrentUserViewModel>(loginModel, string.Concat(UserUrl, "CompanyLogin"));
+
+                return userViewModel;
             }
             catch (Exception)
             {
-                return false;
+                return null;
             }
         }
 

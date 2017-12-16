@@ -11,5 +11,7 @@ namespace RJB.Model.ViewModel
         public string Name { get; set; }
 
         public Role? Role { get; set; }
+
+        public string Password { get; set; }
     }
 }

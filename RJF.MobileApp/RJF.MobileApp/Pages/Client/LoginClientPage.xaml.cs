@@ -1,4 +1,5 @@
 ﻿using System;
+using RJB.HttpExtinction.HttpRequests.Helpers;
 using RJB.HttpExtinction.HttpRequests.RequestHelpers;
 using RJB.Model.ViewModel;
 using RJF.MobileApp.ViewModel;
@@ -24,15 +25,17 @@ namespace RJF.MobileApp
                 Password = Password.Text
             };
 
-            var isSuccess = UserClientService.ClientLogin(loginModel);
-            if (!isSuccess)
+            var userViewModel = UserClientService.ClientLogin(loginModel);
+            if (userViewModel == null)
             {
                 LoginInfo.IsVisible = true;
             }
             else
             {
                 LoginInfo.IsVisible = false;
-                CurrentUser.CurrentUserModel = UserClientService.GetCurrentUser();
+                CurrentUser.CurrentUserModel = userViewModel;
+                HttpClientHelper.User = userViewModel;
+
                 await Navigation.PushModalAsync(new ClientMainLayoutPage());
             }
         }
