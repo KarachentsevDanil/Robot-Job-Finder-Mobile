@@ -68,6 +68,9 @@
     <Compile Include="Pages\Robots\AddRobotModelPage.xaml.cs">
       <DependentUpon>AddRobotModelPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Robots\AddSpecializationPage.xaml.cs">
+      <DependentUpon>AddSpecializationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Robots\RobotDetailsPage.xaml.cs">
       <DependentUpon>RobotDetailsPage.xaml</DependentUpon>
     </Compile>
@@ -197,7 +200,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Robots\AddSpecializationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RJF.MobileApp.Pages.Robots.AddSpecializationPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Add new specialization." Margin="0,20" FontSize="20" HorizontalOptions="CenterAndExpand"/>
+
+            <Entry x:Name="Name" Placeholder="Specialization Name"/>
+
+            <Label x:Name="AddSpecializationFailed" Text="Add specialization failed." TextColor="Red" IsVisible="False" Margin="0,20" HorizontalOptions="CenterAndExpand" FontSize="Medium"/>
+
+            <Button Clicked="AddSpecializationButton_Clicked" Text="Add specialization"/>
+
+            <Button Clicked="BackButton_Clicked" Text="Back"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

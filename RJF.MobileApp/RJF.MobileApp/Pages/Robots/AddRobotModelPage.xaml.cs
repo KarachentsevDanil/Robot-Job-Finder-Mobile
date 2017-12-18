@@ -13,13 +13,13 @@ namespace RJF.MobileApp.Pages.Robots
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddRobotModel : ContentPage
     {
-        private readonly IEnumerable<Specialization> _specializations;
+        public static List<Specialization> Specializations;
         public AddRobotModel()
         {
             InitializeComponent();
-            _specializations = SpecializationClientService.GetAllSpecializations();
+            Specializations = SpecializationClientService.GetAllSpecializations().ToList();
 
-            foreach (var specialization in _specializations)
+            foreach (var specialization in Specializations)
             {
                 Specialization.Items.Add(specialization.Name);
             }
@@ -27,7 +27,7 @@ namespace RJF.MobileApp.Pages.Robots
 
         private async void AddRobotModelButton_Clicked(object sender, EventArgs e)
         {
-            var specializationId = _specializations.FirstOrDefault(x => x.Name == Specialization.SelectedItem.ToString())
+            var specializationId = Specializations.FirstOrDefault(x => x.Name == Specialization.SelectedItem.ToString())
                                    ?.SpecializationId ?? 0;
 
             var robot = new RobotModelViewModel
