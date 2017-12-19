@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RJF.MobileApp.Pages.Robots.Robots">
     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add specialization" Clicked="AddSpecialization_Clicked" />
         <ToolbarItem Text="Add robots" Clicked="AddRobot_Clicked" />
         <ToolbarItem Text="Add robot model" Clicked="AddRobotModel_Clicked" />
         <ToolbarItem Text="Log off" Clicked="LogOff_OnClicked" />

@@ -51,7 +51,7 @@ namespace RJF.MobileApp.ViewModel.Leases
         {
             Leases.Clear();
 
-            var leases = LeaseClientService.GetLeaseOfClient(CurrentUser.CurrentUserModel.UserId).Collection;
+            var leases = HttpLeaseService.GetLeaseOfClient(CurrentUser.CurrentUserModel.UserId);
             foreach (var lease in leases)
             {
                 if (Leases.All(x => x.LeaseId != lease.LeaseId))

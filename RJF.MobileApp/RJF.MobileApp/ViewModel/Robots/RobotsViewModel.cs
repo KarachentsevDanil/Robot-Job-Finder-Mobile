@@ -52,7 +52,7 @@ namespace RJF.MobileApp.ViewModel.Robots
         {
             RobotsModel.Clear();
             
-            var robots = RobotClientService.GetRobotsByOfCompany(CurrentUser.CurrentUserModel.UserId).Collection;
+            var robots = HttpRobotService.GetRobotsByOfCompany(CurrentUser.CurrentUserModel.UserId);
             foreach (var robot in robots)
             {
                 if (RobotsModel.All(x => x.RobotId != robot.RobotId))

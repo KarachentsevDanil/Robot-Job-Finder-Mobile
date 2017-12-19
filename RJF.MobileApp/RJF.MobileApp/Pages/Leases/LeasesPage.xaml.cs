@@ -19,7 +19,7 @@ namespace RJF.MobileApp.Pages.Leases
         public Leases()
         {
             InitializeComponent();
-            var leases = LeaseClientService.GetLeaseOfClient(CurrentUser.CurrentUserModel.UserId).Collection;
+            var leases = HttpLeaseService.GetLeaseOfClient(CurrentUser.CurrentUserModel.UserId);
 
             _viewModel = new LeasesViewModel
             {

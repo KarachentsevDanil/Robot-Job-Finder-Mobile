@@ -23,7 +23,7 @@ namespace RJF.MobileApp.Pages.Robots
         {
             InitializeComponent();
 
-            var robots = RobotClientService.GetRobotsByOfCompany(CurrentUser.CurrentUserModel.UserId).Collection;
+            var robots = HttpRobotService.GetRobotsByOfCompany(CurrentUser.CurrentUserModel.UserId);
 
             _viewModel = new RobotsViewModel
             {
@@ -40,8 +40,7 @@ namespace RJF.MobileApp.Pages.Robots
                 return;
 
             await Navigation.PushAsync(new RobotDetails(new RobotDetailsViewModel(item)));
-
-            // Manually deselect item
+            
             ItemsListView.SelectedItem = null;
         }
 
@@ -67,6 +66,11 @@ namespace RJF.MobileApp.Pages.Robots
         {
             CurrentUser.CurrentUserModel = null;
             await Navigation.PopAsync();
+        }
+
+        private async void AddSpecialization_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddSpecializationPage());
         }
     }
 }

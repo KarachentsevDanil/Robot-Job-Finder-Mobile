@@ -18,10 +18,6 @@
                     <Label Text="{Binding Lease.EndDate}" FontSize="Medium"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Feedback:" FontSize="Medium"/>
-                    <Label Text="{Binding Lease.Feedback}" FontSize="Medium"/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
                     <Label Text="Total Price:" FontSize="Medium"/>
                     <Label Text="{Binding Lease.TotalPrice}" FontSize="Medium"/>
                 </StackLayout>

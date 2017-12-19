@@ -17,7 +17,7 @@ namespace RJF.MobileApp.Pages.Robots
         public AddRobotModel()
         {
             InitializeComponent();
-            Specializations = SpecializationClientService.GetAllSpecializations().ToList();
+            Specializations = HttpSpecializationService.GetAllSpecializations().ToList();
 
             foreach (var specialization in Specializations)
             {
@@ -37,13 +37,13 @@ namespace RJF.MobileApp.Pages.Robots
                 RobotModelSpecializations = new List<RobotModelSpecialization>()
             };
 
-            robot.RobotModelSpecializations.Add(new RobotModelSpecialization()
+            robot.RobotModelSpecializations.Add(new RobotModelSpecialization
             {
                 SpecializationId = specializationId,
                 SkillLevel = SkillLevel.High
             });
 
-            var isRobotAdd = RobotClientService.AddRobotModel(robot);
+            var isRobotAdd = HttpRobotService.AddRobotModel(robot);
             if (!isRobotAdd)
             {
                 AddRobotModelFailed.IsVisible = true;
@@ -51,7 +51,7 @@ namespace RJF.MobileApp.Pages.Robots
             else
             {
                 ClearForm();
-                AddRobot.RobotModels = RobotClientService.GetRobotsModel();
+                AddRobot.RobotModels = HttpRobotService.GetRobotsModel();
                 await Navigation.PopAsync();
             }
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using RJB.HttpExtinction.HttpRequests.RequestHelpers;
 using RJB.Model.Model.Leases;
+using RJB.Model.Model.Robots;
 using RJF.MobileApp.ViewModel.Leases;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -29,14 +30,13 @@ namespace RJF.MobileApp.Pages.Leases
 
         private async void CompleteButton_Clicked(object sender, EventArgs e)
         {
-            RJB.Model.Model.Robots.Rating rating;
-            Enum.TryParse(Rating.SelectedItem.ToString(), true, out rating);
+            Enum.TryParse(Rating.SelectedItem.ToString(), true, out Rating rating);
 
             Lease.Rating = rating;
             Lease.Feedback = Feedback.Text;
 
-            var isSuccess = LeaseClientService.CompleateLease(Lease);
-            LeaseDetails.LeaseDetailsViewModel.Lease = LeaseClientService.GetLeaseDetails(Lease.LeaseId);
+            var isSuccess = HttpLeaseService.CompleateLease(Lease);
+            LeaseDetails.LeaseDetailsViewModel.Lease = HttpLeaseService.GetLeaseDetails(Lease.LeaseId);
 
             if (isSuccess)
             {

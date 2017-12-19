@@ -20,7 +20,7 @@ namespace RJF.MobileApp.Pages.Robots
         public AddRobot()
         {
             InitializeComponent();
-            RobotModels = RobotClientService.GetRobotsModel();
+            RobotModels = HttpRobotService.GetRobotsModel();
 
             foreach (var robotModel in RobotModels)
             {
@@ -41,7 +41,7 @@ namespace RJF.MobileApp.Pages.Robots
                 RobotModelId = robotModelId
             };
 
-            var isRobotAdd = RobotClientService.AddRobot(robot);
+            var isRobotAdd = HttpRobotService.AddRobot(robot);
             if (!isRobotAdd)
             {
                 AddRobotFailed.IsVisible = true;

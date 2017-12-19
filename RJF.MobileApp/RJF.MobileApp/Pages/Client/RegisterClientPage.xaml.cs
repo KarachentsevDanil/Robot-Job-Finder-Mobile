@@ -24,7 +24,7 @@ namespace RJF.MobileApp
                 Password = Password.Text
             };
 
-            bool isSuccessed = UserClientService.RegisterClient(company);
+            bool isSuccessed = HttpUserService.RegisterClient(company);
             if (!isSuccessed)
             {
                 RegisterFailed.IsVisible = true;

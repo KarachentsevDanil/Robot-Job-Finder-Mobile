@@ -10,7 +10,7 @@
 
             <Entry x:Name="Password" Placeholder="Password" IsPassword="True"/>
 
-            <Label x:Name="LoginInfo" Text="Login failed." TextColor="Red" IsVisible="False" Margin="0,20" HorizontalOptions="CenterAndExpand" FontSize="Medium"/>
+            <Label x:Name="LoginInfo" Text="Company does not exists or password is incorrect." TextColor="Red" IsVisible="False" Margin="0,20" HorizontalOptions="CenterAndExpand" FontSize="Medium"/>
 
             <Button Clicked="LoginButton_Clicked" Text="Sign in"/>
 

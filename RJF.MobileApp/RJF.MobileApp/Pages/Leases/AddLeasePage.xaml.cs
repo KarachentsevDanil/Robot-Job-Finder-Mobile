@@ -24,7 +24,7 @@ namespace RJF.MobileApp.Pages.Leases
         public AddLease()
         {
             InitializeComponent();
-            Specializations = SpecializationClientService.GetAllSpecializations().ToList();
+            Specializations = HttpSpecializationService.GetAllSpecializations().ToList();
             LoadRobotsCommand = new Command<List<Robot>>(UpdateRobotsLease);
 
             foreach (var specialization in Specializations)
@@ -63,7 +63,7 @@ namespace RJF.MobileApp.Pages.Leases
                 EndDate = EndDate.Date
             };
 
-            var robots = RobotClientService.GetRobotsOnSpecificDateRange(searchRobot);
+            var robots = HttpRobotService.GetRobotsOnSpecificDateRange(searchRobot);
             AddLeaseButton.IsVisible = robots.Any();
 
             LoadRobotsCommand.Execute(robots);
@@ -82,10 +82,11 @@ namespace RJF.MobileApp.Pages.Leases
                 if (deleteRobot)
                 {
                     SelectedIds.Remove(item.RobotId);
-                }
-                else
-                {
-                    await DisplayAlert("Lease a robot", "Robot already selected", "Ok");
+
+                    item.IsSelected = string.Empty;
+
+                    Robots.Remove(Robots.FirstOrDefault(x => x.RobotId == item.RobotId));
+                    Robots.Add(item);
                 }
             }
             else
@@ -101,6 +102,8 @@ namespace RJF.MobileApp.Pages.Leases
                     Robots.Insert(0, item);
                 }
             }
+
+            ItemsListView.SelectedItem = null;
         }
 
         private async void AddLeaseButton_Clicked(object sender, EventArgs e)
@@ -127,7 +130,7 @@ namespace RJF.MobileApp.Pages.Leases
                 });
             }
 
-            var isSuccess = LeaseClientService.CreateLease(leaseModel);
+            var isSuccess = HttpLeaseService.CreateLease(leaseModel);
             if (isSuccess)
             {
                 await DisplayAlert("Info", "Lease successfully created.", "Ok");

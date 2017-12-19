@@ -35,10 +35,10 @@
   <ItemGroup>
     <Compile Include="HttpRequests\Helpers\Constants.cs" />
     <Compile Include="HttpRequests\Helpers\HttpClientHelper.cs" />
-    <Compile Include="HttpRequests\RequestHelpers\LeaseClientService.cs" />
-    <Compile Include="HttpRequests\RequestHelpers\RobotClientService.cs" />
-    <Compile Include="HttpRequests\RequestHelpers\SpecializationClientService.cs" />
-    <Compile Include="HttpRequests\RequestHelpers\UserClientService.cs" />
+    <Compile Include="HttpRequests\RequestHelpers\HttpLeaseService.cs" />
+    <Compile Include="HttpRequests\RequestHelpers\HttpRobotService.cs" />
+    <Compile Include="HttpRequests\RequestHelpers\HttpSpecializationService.cs" />
+    <Compile Include="HttpRequests\RequestHelpers\HttpUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -22,7 +22,7 @@ namespace RJF.MobileApp.Pages.Robots
 	            Name = Name.Text
 	        };
 
-	        var isSuccess = SpecializationClientService.AddSpecialization(specialization);
+	        var isSuccess = HttpSpecializationService.AddSpecialization(specialization);
 	        if (!isSuccess)
 	        {
 	            AddSpecializationFailed.IsVisible = true;
@@ -30,7 +30,7 @@ namespace RJF.MobileApp.Pages.Robots
 	        else
 	        {
 	            ClearForm();
-	            AddRobotModel.Specializations = SpecializationClientService.GetAllSpecializations().ToList();
+	            AddRobotModel.Specializations = HttpSpecializationService.GetAllSpecializations().ToList();
 	            await Navigation.PopAsync();
 	        }
         }

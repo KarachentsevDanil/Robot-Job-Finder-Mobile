@@ -25,19 +25,26 @@ namespace RJF.MobileApp
                 Password = Password.Text
             };
 
-            var userViewModel = UserClientService.CompanyLogin(loginModel);
+            var userViewModel = HttpUserService.CompanyLogin(loginModel);
             if (userViewModel == null)
             {
                 LoginInfo.IsVisible = true;
             }
             else
             {
-                LoginInfo.IsVisible = false;
+                ClearForm();
                 CurrentUser.CurrentUserModel = userViewModel;
                 HttpClientHelper.User = userViewModel;
 
                 await Navigation.PushModalAsync(new CompanyMainLayout());
             }
+        }
+
+        private void ClearForm()
+        {
+            LoginInfo.IsVisible = false;
+            Email.Text = string.Empty;
+            Password.Text = string.Empty;
         }
 
         private async void ReginstrationButton_Clicked(object sender, EventArgs e)
